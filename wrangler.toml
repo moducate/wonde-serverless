@@ -1,12 +1,9 @@
-name = "cf"
+name = "diagon"
 type = "javascript"
-zone_id = ""
-account_id = ""
-route = ""
 workers_dev = true
 compatibility_date = "2021-10-06"
 
 [build]
-command = "npm install && npm run build"
+command = "yarn && yarn build"
 [build.upload]
 format = "service-worker"
