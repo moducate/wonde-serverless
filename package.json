@@ -5,6 +5,8 @@
   "main": "dist/worker.js",
   "scripts": {
     "build": "webpack",
+    "setup": "wrangler config",
+    "deploy": "wrangler publish",
     "format": "prettier --write  '*.{json,js}' 'src/**/*.ts' 'test/**/*.ts'",
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest --verbose"
