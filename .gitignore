@@ -1,6 +1,9 @@
 # Dotfiles
 .*
 !/.gitignore
+!/.cargo-ok
+!/.eslintrc
+!/.prettierrc
 
 # Editors
 ## IDEA
@@ -99,3 +102,6 @@ $RECYCLE.BIN/
 
 # Exceptions
 !.editorconfig
+
+# Node.js
+node_modules
