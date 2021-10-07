@@ -1,4 +1,4 @@
-name = "diagon"
+name = "heimdall"
 type = "javascript"
 workers_dev = true
 compatibility_date = "2021-10-06"
