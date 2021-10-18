@@ -1,14 +1,14 @@
 import { handleRequest } from '../src/handler'
 import makeServiceWorkerEnv from 'service-worker-mock'
 import nock from 'nock'
-import nodeFetch from 'node-fetch'
+import { $fetch } from 'ohmyfetch';
 
 declare var global: any
 
 describe('handle', () => {
   beforeAll(() => {
     if (typeof fetch === 'undefined') {
-      global.fetch = nodeFetch
+      global.fetch = $fetch
     }
   })
 
@@ -90,7 +90,7 @@ describe('handle', () => {
         },
       })
 
-      nock('https://api.wonde.com')
+    nock('https://api.wonde.com')
       .get('/v1.0/schools/a1234567890/students2')
       .reply(200, {
         data: [
