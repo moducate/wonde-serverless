@@ -1,3 +1,5 @@
+import { $fetch } from 'ohmyfetch';
+
 export async function handleRequest(event: FetchEvent): Promise<Response> {
   const { method, url, headers } = event.request
 
@@ -35,7 +37,7 @@ export async function handleRequest(event: FetchEvent): Promise<Response> {
       search && (next += search)
 
       while (next) {
-        const res = await fetch(next, {
+        const res = await $fetch(next, {
           method,
           headers: {
             Authorization: headers.get('authorization') || '',
