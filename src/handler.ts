@@ -58,7 +58,7 @@ export async function handleRequest(event: FetchEvent): Promise<Response> {
               next?: string
             }
           }
-        } = await res.json()
+        } = await res
         resp.data.push(...(data.map(x => ({ ...x, _school: school }))))
         next = meta?.pagination?.next
       }
