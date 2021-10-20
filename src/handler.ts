@@ -1,3 +1,5 @@
+import { $fetch } from 'ohmyfetch';
+
 export async function handleRequest(event: FetchEvent): Promise<Response> {
   const { method, url, headers } = event.request
 
@@ -35,7 +37,14 @@ export async function handleRequest(event: FetchEvent): Promise<Response> {
       search && (next += search)
 
       while (next) {
-        const res = await fetch(next, {
+        const { data, meta }: {
+          data: any[],
+          meta?: {
+            pagination?: {
+              next?: string
+            }
+          }
+        } = await $fetch(next, {
           method,
           headers: {
             Authorization: headers.get('authorization') || '',
@@ -49,14 +58,6 @@ export async function handleRequest(event: FetchEvent): Promise<Response> {
           },
         })
 
-        const { data, meta }: {
-          data: any[],
-          meta?: {
-            pagination?: {
-              next?: string
-            }
-          }
-        } = await res.json()
         resp.data.push(...(data.map(x => ({ ...x, _school: school }))))
         next = meta?.pagination?.next
       }
